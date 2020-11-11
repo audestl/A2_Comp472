@@ -30,13 +30,40 @@ class Node:
         if position == (0,0) or position == (0,col-1) or position == (row-1,0) or position == (row-1,col-1):
             isCorner = True
         else: isCorner = False
-        print(position)
+
+       #1-Create successor for first move
+
+        leftPos = (position[0], position[1]-1)
+        rightPos = (position[0], position[1] + 1)
+        bottomPos = (position[0] + 1, position[1])
+        topPos = (position[0] - 1, position[1])
+
+        # initialState.state[0][0], initialState.state[pos[0]][pos[1]] = initialState.state[pos[0]][pos[1]], initialState.state[0][0]
+        # leftNode = Node()
+
+        if leftPos[1]>=0:
+            tempState = np.array.copy(self.state)
+            tempState.state[leftPos[0]][leftPos[1]], tempState.state[position[0]][position[1]] = tempState.state[position[0]][position[1]],tempState.state[leftPos[0]][leftPos[1]]
+            leftNode = Node()
+        if rightPos[1] <= col:
+            #
+        if bottomPos[0] <=row:
+            #
+        if topPos[0] >= 0:
+            #
+
+
+
+
+
+
+
+
+        #2 Add successors to openList
 
 
 # Parse string to get inital state puzzle
 initialState = Node(np.array([[3, 0, 1, 4], [2, 6, 5, 7]]), None, 0)
-initialState1 = Node(np.array([[3, 0, 1, 4], [2, 6, 5, 7]]), None, 1)
-initialState2 = Node(np.array([[3, 0, 1, 4], [2, 6, 5, 7]]), None, 2)
 
 openList = [initialState, initialState1, initialState2]
 closedList = []

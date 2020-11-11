@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8e1c7595-413c-43aa-8f76-8a6a3903956a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Node.py" beforeDir="false" afterPath="$PROJECT_DIR$/Node.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,6 +57,10 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
+    <state x="174" y="89" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605125319588">
+      <screen x="0" y="23" width="1440" height="829" />
+    </state>
+    <state x="174" y="89" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.829@0.23.1440.829" timestamp="1605125319588" />
     <state width="1399" height="208" key="GridCell.Tab.0.bottom" timestamp="1604947798301">
       <screen x="0" y="23" width="1440" height="829" />
     </state>
@@ -72,16 +77,5 @@
       <screen x="0" y="23" width="1440" height="829" />
     </state>
     <state width="1399" height="208" key="GridCell.Tab.0.right/0.23.1440.829@0.23.1440.829" timestamp="1604947798301" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/main.py</url>
-          <line>8</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
