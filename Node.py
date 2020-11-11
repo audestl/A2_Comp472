@@ -1,8 +1,10 @@
 import numpy as np
+from operator import attrgetter
 
 
 class Node:
     # Class attribute
+    weight = 0
     def __init__(self, state, old_state, weight):
         self.state = state
         self.old_state = old_state
@@ -33,10 +35,24 @@ class Node:
 
 # Parse string to get inital state puzzle
 initialState = Node(np.array([[3, 0, 1, 4], [2, 6, 5, 7]]), None, 0)
+initialState1 = Node(np.array([[3, 0, 1, 4], [2, 6, 5, 7]]), None, 1)
+initialState2 = Node(np.array([[3, 0, 1, 4], [2, 6, 5, 7]]), None, 2)
 
-openList = [initialState]
+openList = [initialState, initialState1, initialState2]
 closedList = []
 
 initialState.createSuccessors()
 
 #while True:
+#Sort open list by weight
+openList.sort(key=attrgetter('weight'))
+
+#Create successor
+openList[0].createSuccessors()
+
+#Pop the visited node and add to closed list
+
+#Check if first Node is the goal
+if openList[0].isGoal():
+    print("Solution found")
+
