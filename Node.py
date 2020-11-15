@@ -31,6 +31,7 @@ class Node:
     #     maxRow = len(self.state) - 1
     #     maxCol = len(self.state[0]) - 1
 
+    #Returns a string that traces back the solution from the goal state
     def solutionToString(self):
         str1 = ""
         if self.old_Node != None:
@@ -51,7 +52,8 @@ class Node:
         return str1
 
     def createSuccessors(self, isUniformCost):
-        #Calculte position
+
+        #Calculte position of empty tile
         row = len(self.state)
         col = len(self.state[0])
         for x in range(0, row):
@@ -67,12 +69,17 @@ class Node:
 
        #1-Create successor for regular move
 
+        #Positions of the tiles to be switched
         leftPos = (position[0], position[1]-1)
         rightPos = (position[0], position[1] + 1)
         bottomPos = (position[0] + 1, position[1])
         topPos = (position[0] - 1, position[1])
 
         successorList = []
+
+        #In each if block statement, a new puzzle state array is created by switching the empty tile and the target tile
+        #A new Node object is created with that puzzle state and the cost of the move
+        #This new successor node is then added to a list of all created successors
         if leftPos[1] >= 0:
             leftState = np.copy(self.state)
             leftState[leftPos[0]][leftPos[1]], leftState[position[0]][position[1]] = leftState[position[0]][position[1]], leftState[leftPos[0]][leftPos[1]]
@@ -105,7 +112,7 @@ class Node:
             successorList.append(topNode)
 
         if isCorner:
-            # Create Wrapping moves
+            #2-Create Wrapping moves, horizontal and vertical
             if position[1] == col-1:
                 wrapLeftState = np.copy(self.state)
                 wrapLeftState[position[0]][0], wrapLeftState[position[0]][position[1]] = \
@@ -158,7 +165,9 @@ class Node:
                 if not alreadyExists:
                     successorList.append(wrapBottomNode)
 
-            # Create Diagonal moves
+            #3-Create Diagonal moves
+
+            #Top left corner
             if position == (0, 0):
                 oppositeCornerState = np.copy(self.state)
                 oppositeCornerState[row-1][col-1], oppositeCornerState[0][0] = \
@@ -173,6 +182,8 @@ class Node:
                 diagonalNode = Node(diagonalState, self, diagonalState[0][0], 3, self.weight + 3, 0) if isUniformCost \
                     else Node(diagonalState, self, diagonalState[0][0], 3, self.weight + 3)
                 successorList.append(diagonalNode)
+
+            #Top Right Corner
             elif position == (0, col-1):
                 oppositeCornerState = np.copy(self.state)
                 oppositeCornerState[row - 1][0], oppositeCornerState[0][col-1] = \
@@ -187,6 +198,8 @@ class Node:
                 diagonalNode = Node(diagonalState, self, diagonalState[0][col-1], 3, self.weight + 3, 0) if isUniformCost \
                     else Node(diagonalState, self, diagonalState[0][col-1], 3, self.weight + 3)
                 successorList.append(diagonalNode)
+
+            #Bottom Left Corner
             elif position == (row-1, 0):
                 oppositeCornerState = np.copy(self.state)
                 oppositeCornerState[0][col - 1], oppositeCornerState[row-1][0] = \
@@ -201,6 +214,8 @@ class Node:
                 diagonalNode = Node(diagonalState, self, diagonalState[row-1][0], 3, self.weight + 3, 0) if isUniformCost \
                     else Node(diagonalState, self, diagonalState[row-1][0], 3, self.weight + 3)
                 successorList.append(diagonalNode)
+
+            #Bottom Right Corner
             elif position == (row-1, col-1):
                 oppositeCornerState = np.copy(self.state)
                 oppositeCornerState[0][0], oppositeCornerState[row - 1][col - 1] = \

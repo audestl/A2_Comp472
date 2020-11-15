@@ -18,7 +18,7 @@ for line in Lines:
 
     openList = [initialState]
     closedList = []
-    # Create Files
+    # Create Output Files
     solutionFileName = str(puzzleNumber) + "_ucs_solution.txt"
     searchFileName = str(puzzleNumber) + "_ucs_search.txt"
 
@@ -40,7 +40,7 @@ for line in Lines:
             visitedNode = openList.pop(0)
             closedList.append(visitedNode)
 
-            #Create successor
+            #Create successor nodes and check if they already exists
             newSuccessorList = visitedNode.createSuccessors(True)
             for successorNode in newSuccessorList:
                 for openNode in openList:
@@ -57,7 +57,7 @@ for line in Lines:
             openList.sort(key=attrgetter('weight'))
     output_file.close()
 
-    # Add solution stuff
+    # Print solution to the output files
     if solutionFound:
         with open(solutionFileName, mode='w+', newline='') as output_file:
             output_file.write(openList[0].solutionToString())
@@ -70,4 +70,5 @@ for line in Lines:
         with open(solutionFileName, mode='w+', newline='') as output_file:
             output_file.write("No solution")
             output_file.close()
+
     puzzleNumber += 1
