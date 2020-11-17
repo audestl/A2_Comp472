@@ -1,11 +1,10 @@
 import numpy as np
 import time
 from operator import attrgetter
-from Node import Node
-
+from Node import Node, goalState1, goalState2
 
 # Parse string to get inital state puzzle
-file1 = open('input.txt', 'r')
+file1 = open('input.txt.txt', 'r')
 Lines = file1.readlines()
 
 puzzleNumber = 0
@@ -14,6 +13,10 @@ for line in Lines:
     for number in line.split():
         arr.append(int(number))
 
+
+    #####------------WARNING---------------#####
+    #For puzzles with dimensions other than 2x4,
+    #Please change the initialState and the goalStates to the dimensions desired
     initialState = Node(np.array([[arr[0], arr[1], arr[2], arr[3]], [arr[4], arr[5], arr[6], arr[7]]]), None, 0, 0, 0, 0)
 
     openList = [initialState]
@@ -22,12 +25,13 @@ for line in Lines:
     solutionFileName = str(puzzleNumber) + "_ucs_solution.txt"
     searchFileName = str(puzzleNumber) + "_ucs_search.txt"
 
+
     with open(searchFileName, mode='w+', newline='') as output_file:
         start = time.time()
         while True:
             output_file.write("0 " + str(openList[0].weight) + " 0 " + openList[0].toString()+ "\n")
             # Check if first Node is the goal
-            solutionFound = openList[0].isGoal()
+            solutionFound = openList[0].isGoal(goalState1,goalState2)
             if solutionFound:
                 end = time.time()
                 print("Solution found, Total cost: ", openList[0].weight)
@@ -41,7 +45,7 @@ for line in Lines:
             closedList.append(visitedNode)
 
             #Create successor nodes and check if they already exists
-            newSuccessorList = visitedNode.createSuccessors(True)
+            newSuccessorList = visitedNode.createSuccessors(0)
             for successorNode in newSuccessorList:
                 for openNode in openList:
                     if np.array_equal(successorNode.state, openNode.state) and successorNode.weight < openNode.weight:
