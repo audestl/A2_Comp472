@@ -80,6 +80,13 @@ class Node:
         str1 += str(self.tileMoved) + " " + str(self.moveCost) + " " + self.toString() + "\n"
         return str1
 
+    # Returns the length of the solution path
+    def countSolutionLength(self):
+        count = 1
+        if self.old_Node != None:
+            count += self.old_Node.countSolutionLength()
+        return count
+
     def isGoal(self, goal1, goal2):
         if np.array_equal(self.state, goal1) or np.array_equal(self.state, goal2):
             return True

@@ -4,39 +4,51 @@ from operator import attrgetter
 from Node import Node, goalState1, goalState2
 
 # Parse string to get inital state puzzle
-file1 = open('input.txt.txt', 'r')
+file1 = open('input.txt', 'r')
 Lines = file1.readlines()
 
-puzzleNumber = 0
-for line in Lines:
-    arr = []
-    for number in line.split():
-        arr.append(int(number))
+TotalSolutionLength = 0
+TotalSearchLength = 0
+TotalFailures = 0
+TotalExecutionTime = 0
+TotalCost = 0
+with open("uniform_analysis.txt", mode='w+', newline='') as output_file:
+    for line in Lines:
+        arr = []
+        for number in line.split():
+            arr.append(int(number))
 
 
-    #####------------WARNING---------------#####
-    #For puzzles with dimensions other than 2x4,
-    #Please change the initialState and the goalStates to the dimensions desired
-    initialState = Node(np.array([[arr[0], arr[1], arr[2], arr[3]], [arr[4], arr[5], arr[6], arr[7]]]), None, 0, 0, 0, 0)
+        #####------------WARNING---------------#####
+        #For puzzles with dimensions other than 2x4,
+        #Please change the initialState and the goalStates to the dimensions desired
+        initialState = Node(np.array([[arr[0], arr[1], arr[2], arr[3]], [arr[4], arr[5], arr[6], arr[7]]]), None, 0, 0, 0, 0)
 
-    openList = [initialState]
-    closedList = []
-    # Create Output Files
-    solutionFileName = str(puzzleNumber) + "_ucs_solution.txt"
-    searchFileName = str(puzzleNumber) + "_ucs_search.txt"
+        openList = [initialState]
+        closedList = []
+        # Create Output Files
+        # solutionFileName = str(puzzleNumber) + "_ucs_solution.txt"
+        # searchFileName = str(puzzleNumber) + "_ucs_search.txt"
 
-
-    with open(searchFileName, mode='w+', newline='') as output_file:
+        SearchLength = 0
         start = time.time()
         while True:
-            output_file.write("0 " + str(openList[0].weight) + " 0 " + openList[0].toString()+ "\n")
+            SearchLength += 1
+            # output_file.write("0 " + str(openList[0].weight) + " 0 " + openList[0].toString()+ "\n")
             # Check if first Node is the goal
             solutionFound = openList[0].isGoal(goalState1,goalState2)
             if solutionFound:
                 end = time.time()
+                TotalSolutionLength += openList[0].countSolutionLength()
+                TotalSearchLength += SearchLength
+                TotalExecutionTime += (end - start)
+                TotalCost += openList[0].weight
                 print("Solution found, Total cost: ", openList[0].weight)
                 break
             if(time.time() - start) >= 60:
+                TotalFailures += 1
+                TotalSearchLength += SearchLength
+                TotalExecutionTime += 60
                 print("no solution")
                 break
 
@@ -59,20 +71,20 @@ for line in Lines:
 
             # Sort open list by weight
             openList.sort(key=attrgetter('weight'))
-    output_file.close()
 
-    # Print solution to the output files
-    if solutionFound:
-        with open(solutionFileName, mode='w+', newline='') as output_file:
-            output_file.write(openList[0].solutionToString())
-            output_file.write(str(openList[0].weight) + " " + str(round(end-start, 3)))
-            output_file.close()
-    else:
-        with open(searchFileName, mode='w+', newline='') as output_file:
-            output_file.write("No solution")
-            output_file.close()
-        with open(solutionFileName, mode='w+', newline='') as output_file:
-            output_file.write("No solution")
-            output_file.close()
-
-    puzzleNumber += 1
+        # Print solution to the output files
+        if solutionFound:
+            output_file.write("Solution Length: " + str(openList[0].countSolutionLength())
+                              + ", Search Length: " + str(SearchLength)
+                              + ", Cost: " + str(openList[0].weight)
+                              + ", Execution Time: " + str(round(end - start, 3)) + "\n")
+        else:
+            output_file.write("No solution\n")
+    output_file.write("\nTotal Solution Length: " + str(TotalSolutionLength)
+                      + ", Average Solution Length: " + str(round(TotalSolutionLength / (len(Lines) - TotalFailures), 2)) + "\n")
+    output_file.write("Total Search Length: " + str(TotalSearchLength)
+                      + ", Average Search Length: " + str(round(TotalSearchLength / len(Lines), 2)) + "\n")
+    output_file.write("Total Cost: " + str(TotalCost)
+                      + ", Average Cost: " + str(round(TotalCost / (len(Lines) - TotalFailures), 2)) + "\n")
+    output_file.write("Total Execution Time: " + str(round(TotalExecutionTime, 3))
+                      + ", Average Execution Time: " + str(round(TotalExecutionTime / len(Lines), 3)) + "\n")
