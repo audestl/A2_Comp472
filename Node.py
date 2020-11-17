@@ -21,9 +21,11 @@ class Node:
         self.weight = Gn
         if isinstance(heuristic,int):
             self.Hn = heuristic
+        elif heuristic == "H0":
+            self.Hn = self.computeDemoHeuristic()
         elif heuristic == "Hamming":
             self.Hn = self.computeHammingDistance()
-        elif heuristic == "Permutation":
+        elif heuristic == "Manhattan":
             self.Hn = self.computeManhattan()
         self.Fn = self.weight + self.Hn
 
@@ -58,6 +60,17 @@ class Node:
                         actualPosition[1] - goalPosition2[1])) / 2)
 
         return math.floor(min(manhattanTotal1, manhattanTotal2))
+
+    def computeDemoHeuristic(self):
+        maxRow = len(self.state)-1
+        maxCol = len(self.state[0])-1
+        goalPosition = [maxRow, maxCol]
+        actualPosition = np.argwhere(self.state == 0)[0]
+
+        if np.array_equal(actualPosition, goalPosition):
+            return 0
+        else:
+            return 1
 
     #Returns a string that traces back the solution from the goal state
     def solutionToString(self):

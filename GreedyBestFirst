@@ -15,11 +15,13 @@ for line in Lines:
         arr.append(int(number))
 
 
-    for x in range(0,1):
+    for x in range(0,3):
         if x == 0:
+            heuristic = "H0"
+        elif x == 1:
             heuristic = "Hamming"
-        if(x == 1):
-            heuristic = "Permutation"
+        elif(x == 2):
+            heuristic = "Manhattan"
 
         #####------------WARNING---------------#####
         # For puzzles with dimensions other than 2x4,
@@ -34,8 +36,8 @@ for line in Lines:
         openList = [initialState]
         closedList = []
         # Create Output Files
-        solutionFileName = str(puzzleNumber) + "_gbfs-h"+ str((x+1)) + "_solution.txt"
-        searchFileName = str(puzzleNumber) + "_gbfs-h"+ str((x+1)) + "_search.txt"
+        solutionFileName = str(puzzleNumber) + "_gbfs-h"+ str(x) + "_solution.txt"
+        searchFileName = str(puzzleNumber) + "_gbfs-h"+ str(x) + "_search.txt"
 
 
         with open(searchFileName, mode='w+', newline='') as output_file:
