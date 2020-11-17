@@ -1,7 +1,7 @@
 import numpy as np
 import time
 from operator import attrgetter
-from Node import Node
+from Node import Node, goalState1, goalState2
 
 
 # Parse string to get inital state puzzle
@@ -27,11 +27,6 @@ for line in Lines:
         # For puzzles with dimensions other than 2x4,
         # Please change the initialState and the goalStates in the Node class to the dimensions desired
         initialState = Node(np.array([[arr[0], arr[1], arr[2], arr[3]], [arr[4], arr[5], arr[6], arr[7]]]), None, 0, 0, 0, heuristic)
-
-        global goalState1
-        global goalState2
-        goalState1 = np.array([[1, 2, 3, 4], [5, 6, 7, 0]])
-        goalState2 = np.array([[1, 3, 5, 7], [2, 4, 6, 0]])
 
         openList = [initialState]
         closedList = []
