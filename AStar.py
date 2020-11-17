@@ -15,7 +15,7 @@ for line in Lines:
         arr.append(int(number))
 
 
-    for x in range(0,1):
+    for x in range(0,2):
         if x == 0:
             heuristic = "Hamming"
         if(x == 1):
@@ -34,14 +34,14 @@ for line in Lines:
         openList = [initialState]
         closedList = []
         # Create Output Files
-        solutionFileName = str(puzzleNumber) + "_gbfs-h"+ str((x+1)) + "_solution.txt"
-        searchFileName = str(puzzleNumber) + "_gbfs-h"+ str((x+1)) + "_search.txt"
+        solutionFileName = str(puzzleNumber) + "_astar-h"+ str((x+1)) + "_solution.txt"
+        searchFileName = str(puzzleNumber) + "_astar-h"+ str((x+1)) + "_search.txt"
 
 
         with open(searchFileName, mode='w+', newline='') as output_file:
             start = time.time()
             while True:
-                output_file.write("0 0 " + str(openList[0].Hn)+ " " + openList[0].toString()+ "\n")
+                output_file.write(str(openList[0].Fn) + " " + str(openList[0].weight) + " " + str(openList[0].Hn) + " " + openList[0].toString()+ "\n")
                 # Check if first Node is the goal
                 solutionFound = openList[0].isGoal(goalState1,goalState2)
                 if solutionFound:
@@ -59,18 +59,16 @@ for line in Lines:
                 #Create successor nodes and check if they already exists
                 newSuccessorList = visitedNode.createSuccessors("Hamming")
                 for successorNode in newSuccessorList:
-                    alreadyExists = False
                     for openNode in openList:
-                        if np.array_equal(successorNode.state, openNode.state):
-                            alreadyExists = True
+                        if np.array_equal(successorNode.state, openNode.state) and successorNode.Fn < openNode.Fn:
+                            openList.remove(openNode)
                     for closedNode in closedList:
-                        if np.array_equal(successorNode.state, closedNode.state):
-                            alreadyExists = True
-                    if not alreadyExists:
-                        openList.append(successorNode)
+                        if np.array_equal(successorNode.state, closedNode.state) and successorNode.Fn < closedNode.Fn:
+                            closedList.remove(closedNode)
+                    openList.append(successorNode)
 
                 # Sort open list by weight
-                openList.sort(key=attrgetter('Hn'))
+                openList.sort(key=attrgetter('Fn'))
         output_file.close()
 
         # Print solution to the output files

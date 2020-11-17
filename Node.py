@@ -25,7 +25,7 @@ class Node:
             self.Hn = self.computeHammingDistance()
         elif heuristic == "Permutation":
             self.Hn = self.computeManhattan()
-        self.Fn = Gn + self.Hn
+        self.Fn = self.weight + self.Hn
 
     def computeHammingDistance(self):
         hammingTotal1 = 0
