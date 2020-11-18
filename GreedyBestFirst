@@ -14,7 +14,7 @@ TotalFailures = 0
 TotalExecutionTimeWithFailure = 0
 TotalExecutionTimeWithoutFailure = 0
 TotalCost = 0
-with open("2x5-gbfs-h1_analysis.txt", mode='w+', newline='') as output_file:
+with open("3x5-gbfs-h1_analysis.txt", mode='w+', newline='') as output_file:
     for line in Lines:
         arr = []
         for number in line.split():
@@ -31,7 +31,7 @@ with open("2x5-gbfs-h1_analysis.txt", mode='w+', newline='') as output_file:
             #####------------WARNING---------------#####
             # For puzzles with dimensions other than 2x4,
             # Please change the initialState and the goalStates in the Node class to the dimensions desired
-            initialState = Node(np.array([[arr[0], arr[1], arr[2], arr[3], arr[4]], [arr[5], arr[6], arr[7], arr[8], arr[9]]]), None, 0, 0, 0, heuristic)
+            initialState = Node(np.array([[arr[0], arr[1], arr[2], arr[3], arr[4]], [arr[5], arr[6], arr[7], arr[8], arr[9]], [arr[10], arr[11], arr[12], arr[13], arr[14]]]), None, 0, 0, 0, heuristic)
 
             openList = [initialState]
             closedList = []
