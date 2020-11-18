@@ -5,7 +5,7 @@ from Node import Node, goalState1, goalState2
 
 
 # Parse string to get inital state puzzle
-file1 = open('input.txt', 'r')
+file1 = open('input50puzzles.txt', 'r')
 Lines = file1.readlines()
 
 TotalSolutionLength = 0

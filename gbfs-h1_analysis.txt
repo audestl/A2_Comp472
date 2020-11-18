@@ -1,0 +1,58 @@
+Solution Length: 15, Search Length: 58, Cost: 23, Execution Time: 0.137
+Solution Length: 18, Search Length: 83, Cost: 26, Execution Time: 0.212
+Solution Length: 13, Search Length: 26, Cost: 22, Execution Time: 0.041
+Solution Length: 7, Search Length: 14, Cost: 9, Execution Time: 0.016
+Solution Length: 19, Search Length: 54, Cost: 32, Execution Time: 0.112
+Solution Length: 21, Search Length: 169, Cost: 39, Execution Time: 0.676
+Solution Length: 25, Search Length: 98, Cost: 42, Execution Time: 0.28
+Solution Length: 11, Search Length: 15, Cost: 14, Execution Time: 0.016
+Solution Length: 18, Search Length: 49, Cost: 27, Execution Time: 0.094
+Solution Length: 17, Search Length: 61, Cost: 26, Execution Time: 0.135
+Solution Length: 20, Search Length: 83, Cost: 30, Execution Time: 0.214
+Solution Length: 20, Search Length: 72, Cost: 32, Execution Time: 0.172
+Solution Length: 22, Search Length: 85, Cost: 37, Execution Time: 0.208
+Solution Length: 22, Search Length: 82, Cost: 40, Execution Time: 0.225
+Solution Length: 12, Search Length: 44, Cost: 21, Execution Time: 0.087
+Solution Length: 15, Search Length: 32, Cost: 20, Execution Time: 0.049
+Solution Length: 11, Search Length: 40, Cost: 19, Execution Time: 0.07
+Solution Length: 17, Search Length: 163, Cost: 26, Execution Time: 0.618
+Solution Length: 12, Search Length: 40, Cost: 22, Execution Time: 0.071
+Solution Length: 12, Search Length: 40, Cost: 23, Execution Time: 0.073
+Solution Length: 17, Search Length: 58, Cost: 30, Execution Time: 0.124
+Solution Length: 15, Search Length: 31, Cost: 23, Execution Time: 0.052
+Solution Length: 15, Search Length: 31, Cost: 26, Execution Time: 0.052
+Solution Length: 7, Search Length: 9, Cost: 10, Execution Time: 0.01
+Solution Length: 14, Search Length: 31, Cost: 22, Execution Time: 0.05
+Solution Length: 16, Search Length: 49, Cost: 28, Execution Time: 0.097
+Solution Length: 14, Search Length: 31, Cost: 23, Execution Time: 0.054
+Solution Length: 14, Search Length: 94, Cost: 24, Execution Time: 0.267
+Solution Length: 11, Search Length: 49, Cost: 18, Execution Time: 0.104
+Solution Length: 16, Search Length: 50, Cost: 26, Execution Time: 0.1
+Solution Length: 12, Search Length: 66, Cost: 21, Execution Time: 0.159
+Solution Length: 19, Search Length: 52, Cost: 31, Execution Time: 0.104
+Solution Length: 14, Search Length: 22, Cost: 16, Execution Time: 0.032
+Solution Length: 11, Search Length: 52, Cost: 19, Execution Time: 0.101
+Solution Length: 16, Search Length: 32, Cost: 29, Execution Time: 0.055
+Solution Length: 11, Search Length: 38, Cost: 20, Execution Time: 0.068
+Solution Length: 16, Search Length: 65, Cost: 21, Execution Time: 0.146
+Solution Length: 13, Search Length: 26, Cost: 22, Execution Time: 0.041
+Solution Length: 17, Search Length: 44, Cost: 30, Execution Time: 0.086
+Solution Length: 13, Search Length: 55, Cost: 22, Execution Time: 0.118
+Solution Length: 13, Search Length: 24, Cost: 21, Execution Time: 0.039
+Solution Length: 14, Search Length: 41, Cost: 24, Execution Time: 0.08
+Solution Length: 20, Search Length: 82, Cost: 34, Execution Time: 0.225
+Solution Length: 16, Search Length: 46, Cost: 26, Execution Time: 0.093
+Solution Length: 6, Search Length: 6, Cost: 7, Execution Time: 0.005
+Solution Length: 18, Search Length: 100, Cost: 33, Execution Time: 0.283
+Solution Length: 18, Search Length: 60, Cost: 29, Execution Time: 0.128
+Solution Length: 12, Search Length: 17, Cost: 21, Execution Time: 0.021
+Solution Length: 17, Search Length: 35, Cost: 27, Execution Time: 0.058
+Solution Length: 6, Search Length: 8, Cost: 6, Execution Time: 0.007
+
+Total Solution Length: 748, Average Solution Length: 14.96
+Total Search Length (Failures Included): 2612, Average Search Length (Failures Included): 52.24
+Total Search Length (Failures Excluded): 2612, Average Search Length (Failures Excluded): 52.24
+Total Failure: 0, Average Failure: 0.0
+Total Cost: 1219, Average Cost: 24.38
+Total Execution Time (Failure Included): 6.261, Average Execution Time (Failure Included): 0.125
+Total Execution Time (Failure Excluded): 6.261, Average Execution Time (Failure Excluded): 0.125
