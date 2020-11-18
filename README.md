@@ -1,4 +1,5 @@
 # A2_Comp472
+https://github.com/audestl/A2_Comp472/tree/Setup
 
 The χ-Puzzle
 
