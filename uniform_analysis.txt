@@ -1,0 +1,58 @@
+No solution
+No solution
+No solution
+Solution Length: 7, Search Length: 818, Cost: 9, Execution Time: 12.142
+No solution
+No solution
+No solution
+No solution
+Solution Length: 8, Search Length: 625, Cost: 8, Execution Time: 7.292
+No solution
+No solution
+No solution
+No solution
+No solution
+No solution
+No solution
+No solution
+No solution
+Solution Length: 8, Search Length: 1022, Cost: 9, Execution Time: 19.264
+No solution
+No solution
+No solution
+No solution
+Solution Length: 7, Search Length: 1642, Cost: 10, Execution Time: 50.11
+No solution
+No solution
+No solution
+No solution
+No solution
+No solution
+No solution
+No solution
+No solution
+Solution Length: 7, Search Length: 775, Cost: 9, Execution Time: 10.697
+No solution
+No solution
+No solution
+No solution
+No solution
+No solution
+No solution
+Solution Length: 8, Search Length: 1112, Cost: 9, Execution Time: 21.635
+No solution
+No solution
+Solution Length: 6, Search Length: 217, Cost: 7, Execution Time: 0.865
+No solution
+No solution
+No solution
+No solution
+Solution Length: 6, Search Length: 89, Cost: 6, Execution Time: 0.15
+
+Total Solution Length: 57, Average Solution Length: 7.12
+Total Search Length (Failures Included): 82472, Average Search Length (Failures Included): 1649.44
+Total Search Length (Failures Excluded): 6300, Average Search Length (Failures Excluded): 787.5
+Total Failure: 42, Average Failure: 0.84
+Total Cost: 67, Average Cost: 8.38
+Total Execution Time (Failure Included): 2642.155, Average Execution Time (Failure Included): 52.843
+Total Execution Time (Failure Excluded): 122.155, Average Execution Time (Failure Excluded): 15.269
