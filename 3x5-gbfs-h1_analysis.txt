@@ -1,0 +1,13 @@
+Solution Length: 86, Search Length: 3304, Cost: 131, Execution Time: 248.4
+Solution Length: 76, Search Length: 1946, Cost: 115, Execution Time: 93.04
+Solution Length: 91, Search Length: 2361, Cost: 140, Execution Time: 129.378
+Solution Length: 82, Search Length: 1867, Cost: 126, Execution Time: 84.547
+Solution Length: 90, Search Length: 4680, Cost: 145, Execution Time: 514.028
+
+Total Solution Length: 425, Average Solution Length: 85.0
+Total Search Length (Failures Included): 14158, Average Search Length (Failures Included): 2831.6
+Total Search Length (Failures Excluded): 14158, Average Search Length (Failures Excluded): 2831.6
+Total Failure: 0, Average Failure: 0.0
+Total Cost: 657, Average Cost: 131.4
+Total Execution Time (Failure Included): 1069.394, Average Execution Time (Failure Included): 213.879
+Total Execution Time (Failure Excluded): 1069.394, Average Execution Time (Failure Excluded): 213.879
