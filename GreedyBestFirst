@@ -8,9 +8,11 @@ file1 = open('input50puzzles.txt', 'r')
 Lines = file1.readlines()
 
 TotalSolutionLength = 0
-TotalSearchLength = 0
+TotalSearchLengthWithFailure = 0
+TotalSearchLengthWithoutFailure = 0
 TotalFailures = 0
-TotalExecutionTime = 0
+TotalExecutionTimeWithFailure = 0
+TotalExecutionTimeWithoutFailure = 0
 TotalCost = 0
 with open("gbfs-h2_analysis.txt", mode='w+', newline='') as output_file:
     for line in Lines:
@@ -47,15 +49,20 @@ with open("gbfs-h2_analysis.txt", mode='w+', newline='') as output_file:
                 if solutionFound:
                     end = time.time()
                     TotalSolutionLength += openList[0].countSolutionLength()
-                    TotalSearchLength += SearchLength
-                    TotalExecutionTime += (end-start)
+
+                    TotalSearchLengthWithFailure += SearchLength
+                    TotalExecutionTimeWithFailure += (end - start)
+
+                    TotalSearchLengthWithoutFailure += SearchLength
+                    TotalExecutionTimeWithoutFailure += (end - start)
+
                     TotalCost += openList[0].weight
                     print("Solution found, Total cost: ", openList[0].weight)
                     break
                 if(time.time() - start) >= 60:
                     TotalFailures += 1
-                    TotalSearchLength +=SearchLength
-                    TotalExecutionTime += 60
+                    TotalSearchLengthWithFailure += SearchLength
+                    TotalExecutionTimeWithFailure += 60
                     print("no solution")
                     break
 
@@ -85,7 +92,17 @@ with open("gbfs-h2_analysis.txt", mode='w+', newline='') as output_file:
                                   + ", Cost: "+ str(openList[0].weight) + ", Execution Time: " + str(round(end-start, 3)) + "\n")
             else:
                 output_file.write("No solution\n")
-    output_file.write("\nTotal Solution Length: " + str(TotalSolutionLength) + ", Average Solution Length: " + str(round(TotalSolutionLength/(len(Lines)-TotalFailures), 2)) +"\n")
-    output_file.write("Total Search Length: " + str(TotalSearchLength) + ", Average Search Length: " + str(round(TotalSearchLength / len(Lines), 2)) + "\n")
-    output_file.write("Total Cost: " + str(TotalCost) + ", Average Cost: " + str(round(TotalCost / (len(Lines) - TotalFailures), 2)) + "\n")
-    output_file.write("Total Execution Time: " + str(round(TotalExecutionTime, 3)) + ", Average Execution Time: " + str(round(TotalExecutionTime/ len(Lines), 3)) + "\n")
+    output_file.write("\nTotal Solution Length: " + str(TotalSolutionLength)
+                      + ", Average Solution Length: " + str(round(TotalSolutionLength / (len(Lines) - TotalFailures), 2)) + "\n")
+    output_file.write("Total Search Length (Failures Included): " + str(TotalSearchLengthWithFailure)
+                      + ", Average Search Length (Failures Included): " + str(round(TotalSearchLengthWithFailure / len(Lines), 2)) + "\n")
+    output_file.write("Total Search Length (Failures Excluded): " + str(TotalSearchLengthWithoutFailure)
+                      + ", Average Search Length (Failures Excluded): " + str(round(TotalSearchLengthWithoutFailure / (len(Lines) - TotalFailures), 2)) + "\n")
+    output_file.write("Total Failure: " + str(TotalFailures)
+                      + ", Average Failure: " + str(round(TotalFailures / len(Lines), 3)) + "\n")
+    output_file.write("Total Cost: " + str(TotalCost)
+                      + ", Average Cost: " + str(round(TotalCost / (len(Lines) - TotalFailures), 2)) + "\n")
+    output_file.write("Total Execution Time (Failure Included): " + str(round(TotalExecutionTimeWithFailure, 3))
+                      + ", Average Execution Time (Failure Included): " + str(round(TotalExecutionTimeWithFailure / len(Lines), 3)) + "\n")
+    output_file.write("Total Execution Time (Failure Excluded): " + str(round(TotalExecutionTimeWithoutFailure, 3))
+                      + ", Average Execution Time (Failure Excluded): " + str(round(TotalExecutionTimeWithoutFailure / (len(Lines) - TotalFailures), 3)) + "\n")
