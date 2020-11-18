@@ -6,8 +6,8 @@ from operator import attrgetter
 #CHANGE THESE IF YOUR DIMENSION CHANGED
 global goalState1
 global goalState2
-goalState1 = np.array([[1,2,3,4], [5,6,7,0]])
-goalState2 = np.array([[1,3,5,7], [2,4,6,0]])
+goalState1 = np.array([[1,2,3,4,5], [6,7,8,9,0]])
+goalState2 = np.array([[1,3,5,7,9], [2,4,6,8,0]])
 
 class Node:
     # Class attribute
