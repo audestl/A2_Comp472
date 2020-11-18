@@ -14,7 +14,7 @@ For this assignment, we decided to work on every part together. We worked on it 
 
 Note: 
 
-We decided to not include all of the individuals files for the 50 puzzles of the analysis part because it seemed unreasonable. Instead, we compiled all the results into one file per algorithm and per heuristic. The solutions and the search files included into the project are the ones from the sample input given by the teacher.
+We decided to not include all of the individuals files for the 50 puzzles of the analysis part because it seemed unreasonable. Instead, we compiled all the results into one file per algorithm and per heuristic. The solution files and the search files included into the project are the ones from the sample input given by the teacher.
 
 
  
